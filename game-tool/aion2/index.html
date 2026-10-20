@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -267,12 +266,9 @@
         memoSection: "【メモ】",
         cup: "カップ(JP基準)",
         inputs: [
-          "身長", "体格", "体の太さ", "頭の大きさ",
-          "首の長さ", "胸郭の大きさ", "胸郭の長さ",
-          "胸部の大きさ", "胸の位置(横軸)", "広背筋",
-          "腰の太さ", "腰の長さ", "お腹の突出具合",
-          "骨盤の大きさ", "お尻の大きさ", "お尻の高さ",
-          "太ももの長さ", "ふくらはぎの長さ"
+          "身長", "体格", "体の太さ", "頭の大きさ", "首の長さ", "胸郭の大きさ", "胸郭の長さ",
+          "胸部の大きさ", "胸の位置(横軸)", "広背筋", "腰の太さ", "腰の長さ", "お腹の突出具合",
+          "骨盤の大きさ", "お尻の大きさ", "お尻の高さ", "太ももの長さ", "ふくらはぎの長さ"
         ],
         outputs: [
           "身長", "カップ(JP基準)", "バスト","アンダーバスト", "ウエスト", "ヒップ"
@@ -294,12 +290,9 @@
         memoSection: "[Notes]",
         cup: "Cup Size (JP Standard)",
         inputs: [
-          "Height", "Body Build", "Body Thickness", "Head Size",
-          "Neck Length", "Rib Cage Size", "Rib Cage Length",
-          "Chest Size", "Chest Position (Horizontal)", "Back Muscle",
-          "Waist Circumference", "Waist Length", "Belly Protrusion",
-          "Pelvis Size", "Hip Size", "Hip Height",
-          "Thigh Length", "Calf Length"
+          "Height", "Body Build", "Body Thickness", "Head Size", "Neck Length", "Rib Cage Size", "Rib Cage Length",
+          "Chest Size", "Chest Position (Horizontal)", "Back Muscle", "Waist Circumference", "Waist Length", "Belly Protrusion",
+          "Pelvis Size", "Hip Size", "Hip Height", "Thigh Length", "Calf Length"
         ],
         outputs: [
           "Height", "Cup Size (JP Standard)", "Bust","Underbust", "Waist", "Hips"
@@ -321,12 +314,9 @@
         memoSection: "[메모]",
         cup: "컵 사이즈 (일본 기준)",
         inputs: [
-          "키", "체구", "몸 두께", "머리 크기",
-          "목 길이", "흉곽 크기", "흉곽 길이",
-          "가슴 크기", "가슴 위치 (가로축)", "광배",
-          "허리 둘레", "허리 길이", "배 나온 정도",
-          "골반 크기", "엉덩이 크기", "엉덩이 높이",
-          "허벅지 길이", "종아리 길이"
+          "키", "체구", "몸 두께", "머리 크기", "목 길이", "흉곽 크기", "흉곽 길이",
+          "가슴 크기", "가슴 위치 (가로축)", "광배", "허리 둘레", "허리 길이", "배 나온 정도",
+          "골반 크기", "엉덩이 크기", "엉덩이 높이", "허벅지 길이", "종아리 길이"
         ],
         outputs: [
           "키", "컵 사이즈 (일본 기준)", "가슴둘레","밑가슴둘레", "허리둘레", "엉덩이둘레"
@@ -348,12 +338,9 @@
         memoSection: "【備註】",
         cup: "罩杯（日本標準）",
         inputs: [
-          "身高", "體格", "身體厚度", "頭部大小",
-          "頸部長度", "胸廓大小", "胸廓長度",
-          "胸部大小", "胸部位置（水平軸）", "闊背肌",
-          "腰部粗細", "腰部長度", "腹部突出程度",
-          "骨盆大小", "臀部大小", "臀部高度",
-          "大腿長度", "小腿長度"
+          "身高", "體格", "身體厚度", "頭部大小", "頸部長度", "胸廓大小", "胸廓長度",
+          "胸部大小", "胸部位置（水平軸）", "闊背肌", "腰部粗細", "腰部長度", "腹部突出程度",
+          "骨盆大小", "臀部大小", "臀部高度", "大腿長度", "小腿長度"
         ],
         outputs: [
           "身高", "罩杯（日本標準）", "上胸圍","下胸圍", "腰圍", "臀圍"
@@ -377,7 +364,6 @@
             <label for="number${i}" data-input-label="${i}">
               ${translations[currentLanguage].inputs[i]}
             </label>
-
             <input
               type="number"
               id="number${i}"
@@ -420,7 +406,6 @@
         });
         number.addEventListener("input", () => {
           if (number.value === "") return;
-
           updateValue(number.value);
         });
         // 空欄は0にする
@@ -499,7 +484,6 @@
       frontCircul = (0.75*rectangleCirculFront+0.25*ovalCirculFront)/2
       return frontCircul+backCircul;
     }
-    
     //カップ
     function calculateCup(bust, underBust) {
       const diff = bust - underBust;
@@ -512,7 +496,6 @@
       const cupIndex = Math.min(index, 25);
       return String.fromCharCode("A".charCodeAt(0) + cupIndex);
     }
-
     // アンダー
     function calculateUnderbust() {
       const underInpt = [
@@ -536,7 +519,6 @@
       const result = (Math.PI*(calcsWidth+calcsDepth))*(1+(3*((calcsWidth-calcsDepth)/(calcsWidth+calcsDepth))**2/(10+ Math.sqrt(4-3*((calcsWidth-calcsDepth)/(calcsWidth+calcsDepth))**2))));
       return result;
     }
-
     // ウエスト
     function calculateWaist() {
       const waistInpt = [
@@ -549,8 +531,7 @@
       const statureRateW = 1 + waistInpt[0] / (100 * 1);
       const bodyMassRateW = 1 + waistInpt[1] / (100 * 1);
       const bodyWidthRateW = 1 + waistInpt[2] / (100 * 4);
-      const calcsWidth = statureRateW * bodyMassRateW * bodyWidthRateW *
-              ((2.5*(1+waistInpt[3]/100))+(1*(1+waistInpt[4]/100)*bodyMassRateW)+1.3);
+      const calcsWidth = statureRateW * bodyMassRateW * bodyWidthRateW * ((2.5*(1+waistInpt[3]/100))+(1*(1+waistInpt[4]/100)*bodyMassRateW)+1.3);
       const statureRateD = 1 + waistInpt[0] / (100 * 2.5);
       const bodyMassRateD = 1 + waistInpt[1] / (100 * 1.5);
       const bodyWidthRateD = 1 + waistInpt[2] / (100 * 6);
@@ -558,7 +539,6 @@
       const result = (Math.PI*(calcsWidth+calcsDepth))*(1+(3*((calcsWidth-calcsDepth)/(calcsWidth+calcsDepth))**2/(10+ Math.sqrt(4-3*((calcsWidth-calcsDepth)/(calcsWidth+calcsDepth))**2))));
       return result;
     }
-
     // ヒップ
     function calculateHips() {
       const hipsInpt = [
@@ -582,7 +562,6 @@
       const rectangleCircul = calcsWidth*4+calcsDepth*4;
       return 0.75*ovalCircul+0.25*rectangleCircul;
     }
-
     function calculate() {
       const bust =  calculateBust();
       const under = calculateUnderbust();
@@ -596,14 +575,12 @@
       ];
       renderOutputs(results);
     }
-
     // 結果を表示
     function renderOutputs(results) {
       document.getElementById("outputs").innerHTML =
         results.map((value, i) => {
           const displayValue =
             typeof value === "number" ? value.toFixed(1) : value;
-
           return `
             <div class="output-item">
               <span class="output-label">
@@ -614,7 +591,6 @@
           `;
         }).join("");
     }
-    
     function saveResults() {
       // 計算結果を取得
       bust =  calculateBust();
@@ -627,7 +603,6 @@
         calculateWaist(),
         calculateHips()
       ];
-
       // 数値・文字列の両方に対応した表示形式
       function formatValue(value) {
         if (typeof value === "number") {
@@ -635,7 +610,6 @@
         }
         return String(value ?? "");
       }
-
       // TXT本文を作成
       const dict = translations[currentLanguage];
       const inputs = dict.inputs.map((name, i) => ({
@@ -660,18 +634,14 @@
         dict.memoSection,
         memoInput.value
       ];
-
       const text = lines.join("\r\n");
-
       // TXTファイルを作成
       const blob = new Blob(
         ["\uFEFF", text],
         { type: "text/plain;charset=utf-8" }
       );
-
       const url = URL.createObjectURL(blob);
       const link = document.createElement("a");
-
       // ファイル名に日時を設定
       const now = new Date();
       const timestamp = [
@@ -686,15 +656,12 @@
 
       link.href = url;
       link.download = `aion2_3size_${timestamp}.txt`;
-
       document.body.appendChild(link);
       link.click();
       link.remove();
-
       // ダウンロード開始後にURLを解放
       setTimeout(() => URL.revokeObjectURL(url), 1000);
     }
-    
     function applyLanguage(language) {
       if (!translations[language]) return;
       currentLanguage = language;
@@ -717,24 +684,9 @@
         const i = Number(label.dataset.inputLabel);
         label.textContent = dict.inputs[i];
       });
-      inputValues.forEach((_, i) => {
-        const label = dict.inputs[i];
-        document.getElementById(`number${i}`).setAttribute(
-          "aria-label", `${label} - ${language === "ja" ? "数値入力" :
-            language === "ko" ? "숫자 입력" :
-            language === "zh-TW" ? "數值輸入" : "Number input"}`
-        );
-
-        document.getElementById(`slider${i}`).setAttribute(
-          "aria-label", `${label} - ${language === "ja" ? "スライダー" :
-            language === "ko" ? "슬라이더" :
-            language === "zh-TW" ? "滑桿" : "Slider"}`
-        );
-      });
       updateMemoCount();
       calculate();
     }
-
     function updateMemoCount() {
       const count = [...memoInput.value].length;
       memoCount.textContent = count;
