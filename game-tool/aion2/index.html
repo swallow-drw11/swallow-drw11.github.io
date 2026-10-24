@@ -459,30 +459,30 @@
         inputValues[9],	//広背筋
       ];
       //背面半周計算
-      const statureRateWBack = 1 + bustInpt[0] / (100 * 3.5);
+      const statureRateWBack = 1 + bustInpt[0] / (100 * 1.5);
       const bodyMassRateWBack = (1 + bustInpt[1] / (100 * 2))**2;
-      const bodyWidthRateWBack = 1 + bustInpt[2] / (100 * 1.5);
-      const calcsWidthBack = statureRateWBack * bodyMassRateWBack * bodyWidthRateWBack * ((1.2*(1+bustInpt[3]/100))+(1.7*(1+bustInpt[4]/100))+(0.2*(1+bustInpt[7]/100))+2);
-      const statureRateDBack = 1 + bustInpt[0] / (100 * 3.5);
+      const bodyWidthRateWBack = 1 + bustInpt[2] / (100 * 2);
+      const calcsWidthBack = statureRateWBack * bodyMassRateWBack * bodyWidthRateWBack * ((1.2*(1+bustInpt[3]/100))+(1.7*(1+bustInpt[4]/100))+(0.2*(1+bustInpt[7]/100))+2.3);
+      const statureRateDBack = 1 + bustInpt[0] / (100 * 2);
       const bodyMassRateDBack = 1 + bustInpt[1] / (100 * 1.5);
       const bodyWidthRateDBack = 1 + bustInpt[2] / (100 * 1.5);
-      const calcsDepthBack = statureRateDBack * bodyMassRateDBack * bodyWidthRateDBack * ((1.2*(1+bustInpt[3]/100))+(0.8*(1+bustInpt[4]/100))+2);
+      const calcsDepthBack = statureRateDBack * bodyMassRateDBack * bodyWidthRateDBack * ((1.2*(1+bustInpt[3]/100))+(0.8*(1+bustInpt[4]/100))+2.3);
       const ovalCirculBack = (Math.PI*(calcsWidthBack+calcsDepthBack))*(1+(3*((calcsWidthBack-calcsDepthBack)/(calcsWidthBack+calcsDepthBack))**2/(10+ Math.sqrt(4-3*((calcsWidthBack-calcsDepthBack)/(calcsWidthBack+calcsDepthBack))**2))));   
       //前面半周計算
-      const statureRateWFront = 1 + bustInpt[0] / (100 * 2.7);
+      const statureRateWFront = 1 + bustInpt[0] / (100 * 2);
       const bodyMassRateWFront = 1 + bustInpt[1] / (100 * 5);
       const bodyWidthRateWFront = 1 + bustInpt[2] / (100 * 2);
-      const calcsWidthFront = statureRateWFront * bodyMassRateWFront * bodyWidthRateWFront * ((1.3*(1+bustInpt[3]/100))+(1.3*(1+bustInpt[4]/100))+(2*(1+2*bustInpt[5]/100)*(1+(bustInpt[6]/(100*2))**2))+3);
-      const statureRateDFront = 1 + bustInpt[0] / (100 * 2.7);
+      const calcsWidthFront = statureRateWFront * bodyMassRateWFront * bodyWidthRateWFront * ((1.5*(1+bustInpt[3]/100))+(1.5*(1+bustInpt[4]/100))+(1.7*(1+bustInpt[5]/100)**2)*(1+((bustInpt[6]/(100*3))**2))+2.3);
+      const statureRateDFront = 1 + bustInpt[0] / (100 * 2);
       const bodyMassRateDFront = 1 + bustInpt[1] / (100 * 5);
-      const bodyWidthRateDFront = 1 + bustInpt[2] / (100 * 3);
-      const calcsDepthFront = statureRateDFront * bodyMassRateDFront * bodyWidthRateDFront * ((1*(1+bustInpt[3]/100))+(1*(1+bustInpt[4]/100))+(2*(1+2*bustInpt[5]/100))+3);
+      const bodyWidthRateDFront = 1 + bustInpt[2] / (100 * 2);
+      const calcsDepthFront = statureRateDFront * bodyMassRateDFront * bodyWidthRateDFront * ((1*(1+bustInpt[3]/100))+(1.5*(1+bustInpt[4]/100))+(1.5*(1+2*bustInpt[5]/100))+2.5);
       const ovalCirculFront = (Math.PI*(calcsWidthFront+calcsDepthFront))*(1+(3*((calcsWidthFront-calcsDepthFront)/(calcsWidthFront+calcsDepthFront))**2/(10+ Math.sqrt(4-3*((calcsWidthFront-calcsDepthFront)/(calcsWidthFront+calcsDepthFront))**2))));
       //長方形周長(calcsWidth,calcsDepthは半径なので注意)
       const rectangleCirculFront = calcsWidthFront*4+calcsDepthFront*4;
       backCircul = ovalCirculBack/2;
-      frontCircul = (0.75*rectangleCirculFront+0.25*ovalCirculFront)/2
-      return frontCircul+backCircul;
+      frontCircul = (0.5*rectangleCirculFront+0.5*ovalCirculFront)/2
+      return frontCircul + backCircul;
     }
     //カップ
     function calculateCup(bust, underBust) {
@@ -506,16 +506,16 @@
         inputValues[6],	//胸郭の長さ
         inputValues[9],	//広背筋
       ];
-      const statureRateW = 1 + underInpt[0] / (100 * 3.5);
+      const statureRateW = 1 + underInpt[0] / (100 * 1.5);
       const bodyMassRateW = (1 + underInpt[1] / (100 * 2))**2;
-      const bodyWidthRateW = 1 + underInpt[2] / (100 * 1.5);
+      const bodyWidthRateW = 1 + underInpt[2] / (100 * 2);
       const calcsWidth = statureRateW * bodyMassRateW * bodyWidthRateW *
               ((1.2*(1+underInpt[3]/100))+(1.7*(1+underInpt[4]/100))+(0.2*(1+underInpt[5]/100))+2);
-      const statureRateD = 1 + underInpt[0] / (100 * 3.5);
+      const statureRateD = 1 + underInpt[0] / (100 * 2);
       const bodyMassRateD = 1 + underInpt[1] / (100 * 1.5);
       const bodyWidthRateD = 1 + underInpt[2] / (100 * 1.5);
       const calcsDepth = statureRateD * bodyMassRateD * bodyWidthRateD *
-              ((1.2*(1+underInpt[3]/100))+(0.8*(1+underInpt[4]/100))+2);
+              ((1.5*(1+underInpt[3]/100))+(0.8*(1+underInpt[4]/100))+2);
       const result = (Math.PI*(calcsWidth+calcsDepth))*(1+(3*((calcsWidth-calcsDepth)/(calcsWidth+calcsDepth))**2/(10+ Math.sqrt(4-3*((calcsWidth-calcsDepth)/(calcsWidth+calcsDepth))**2))));
       return result;
     }
@@ -528,14 +528,14 @@
         inputValues[10],	//腰の太さ
         inputValues[12],	//お腹の突出具合
       ];
-      const statureRateW = 1 + waistInpt[0] / (100 * 1);
-      const bodyMassRateW = 1 + waistInpt[1] / (100 * 1);
+      const statureRateW = 1 + waistInpt[0] / (100 * 1.5);
+      const bodyMassRateW = (1 + waistInpt[1] / (100 * 1))**2;
       const bodyWidthRateW = 1 + waistInpt[2] / (100 * 4);
-      const calcsWidth = statureRateW * bodyMassRateW * bodyWidthRateW * ((2.5*(1+waistInpt[3]/100))+(1*(1+waistInpt[4]/100)*bodyMassRateW)+1.3);
-      const statureRateD = 1 + waistInpt[0] / (100 * 2.5);
+      const calcsWidth = statureRateW * bodyMassRateW * bodyWidthRateW * ((2.5*(1+waistInpt[3]/100))+(1*(1+waistInpt[4]/100)*bodyMassRateW)+1.5);
+      const statureRateD = 1 + waistInpt[0] / (100 * 2);
       const bodyMassRateD = 1 + waistInpt[1] / (100 * 1.5);
       const bodyWidthRateD = 1 + waistInpt[2] / (100 * 6);
-      const calcsDepth = statureRateD * bodyMassRateD * bodyWidthRateD * ((2*(1+waistInpt[4]/100)*bodyMassRateW)+1.3);
+      const calcsDepth = statureRateD * bodyMassRateD * bodyWidthRateD * ((2.5*(1+waistInpt[4]/100)*bodyMassRateW)+1);
       const result = (Math.PI*(calcsWidth+calcsDepth))*(1+(3*((calcsWidth-calcsDepth)/(calcsWidth+calcsDepth))**2/(10+ Math.sqrt(4-3*((calcsWidth-calcsDepth)/(calcsWidth+calcsDepth))**2))));
       return result;
     }
